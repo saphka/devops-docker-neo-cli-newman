@@ -9,5 +9,5 @@ RUN   rm -rf /var/lib/apt/lists/*
 RUN   mkdir -p /sdk/server/config_master/com.sap.security.um.provider.neo.local
 RUN   echo '{"Users":[{"UID":"int-test","Password":"{SSHA}OPFlBj4ic6G5LCMyE8v5dLoeGp8bD5K3","Roles":["Administrator"],"Attributes":[{"attributeName":"firstname","attributeValue":"Integration"},{"attributeName":"lastname","attributeValue":"Test"},{"attributeName":"email","attributeValue":"int.test@masterdata.ru"}]}]}' > /sdk/server/config_master/com.sap.security.um.provider.neo.local/neousers.json
 RUN   chmod -R 777 sdk
-RUN   apt-get install nodejs nodejs-npm
+RUN   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install -y nodejs
 RUN   npm install --global newman@4.5.7
